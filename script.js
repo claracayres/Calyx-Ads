@@ -69,7 +69,7 @@ function openWhatsApp(e) {
     'Olá! Vim pelo site e gostaria de saber mais sobre os serviços de tráfego pago.',
   )
   window.open(
-    `https://wa.me/${number}?text=${message}`,
+    `https://wa.me/5512997306924?text=${message}`,
     '_blank',
     'noopener,noreferrer',
   )
