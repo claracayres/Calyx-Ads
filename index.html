@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/assets/Logo.png" />
+    <title>Calyx Ads</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#5F87F2',
+              secondary: '#85F157',
+              neutro900: '#05051C',
+              neutro700: '#1A1A2C',
+              neutro500: '#2B2B36',
+              neutro300: '#484854',
+              neutro200: '#787883',
+            },
+            fontFamily: {
+              outfit: ['Outfit', 'sans-serif'],
+            },
+          },
+        },
+      }
+    </script>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/106204a76b.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="bg-neutro900 h-full overflow-x-hidden text-white">
+    <div id="app-wrapper" class="h-full w-full overflow-auto">
+      <!-- Blobs Background -->
+      <div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+        <div
+          class="blob bg-secondary left-0 top-0 h-96 w-96"
+          style="animation-delay: 0s"
+        ></div>
+        <div
+          class="blob right-0 top-1/3 h-80 w-80 bg-lime-300"
+          style="animation-delay: 2s"
+        ></div>
+        <div
+          class="blob bg-primary bottom-0 left-1/3 h-72 w-72"
+          style="animation-delay: 4s"
+        ></div>
+      </div>
+      <nav
+        class="bg-neutro900/70 fixed left-0 right-0 top-0 z-50 border-b border-white/5 backdrop-blur-xl"
+      >
+        <div
+          class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4"
+        >
+          <a href="#" class="flex items-center gap-1">
+            <img src="/assets/Logo.png" class="w-10" alt="Calyx Ads Logo" />
+            <span class="text-xl font-bold">
+              alyx
+              <span
+                class="bg-gradient-to-br from-blue-800 to-lime-400 bg-clip-text text-transparent"
+                >Ads</span
+              >
+            </span>
+          </a>
+          <button onclick="openMenu()" class="relative md:hidden">
+            <img
+              src="/assets/menu.png"
+              alt="Menu Icon"
+              class="h-6 w-6 cursor-pointer md:hidden"
+            />
+          </button>
+
+          <div
+            id="overlay"
+            class="fixed inset-0 z-30 hidden w-1/2"
+            onclick="closeMenu()"
+          ></div>
+
+          <ul
+            id="mobile-menu"
+            class="bg-neutro700 fixed right-0 top-0 z-40 h-screen w-1/2 translate-x-full transform space-y-6 p-6 sm:w-2/3 md:w-1/2 md:text-lg lg:w-1/3"
+          >
+            <li class="text-right">
+              <button onclick="closeMenu()">✕</button>
+            </li>
+            <li>
+              <a
+                href="#serviços"
+                class="text-neutro200 transition-colors hover:text-white"
+                >Seviços</a
+              >
+            </li>
+            <li>
+              <a
+                href="#resultados"
+                class="text-neutro200 transition-colors hover:text-white"
+                >Resultados</a
+              >
+            </li>
+            <li>
+              <a
+                href="#contato"
+                class="text-neutro200 transition-colors hover:text-white"
+                >Contato</a
+              >
+            </li>
+            <li>
+              <button id="nav-cta" class="btn text-sm">Começar Agora</button>
+            </li>
+          </ul>
+
+          <div class="hidden items-center gap-8 md:flex">
+            <a
+              href="#serviços"
+              class="text-slate-300 transition-colors hover:text-white"
+              >Seviços</a
+            >
+            <a
+              href="#resultados"
+              class="text-slate-300 transition-colors hover:text-white"
+              >Resultados</a
+            >
+            <a
+              href="#contato"
+              class="text-slate-300 transition-colors hover:text-white"
+              >Contato</a
+            >
+          </div>
+          <a
+            href="https://api.whatsapp.com/send?phone=5512997306924&text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os%20da%20Calyx%20Ads."
+            id="whatsapp-btn"
+            target="_blank"
+            onclick="openWhatsApp(event)"
+            class="btn hidden md:block"
+            >Começar Agora</a
+          >
+        </div>
+      </nav>
+      <!-- Background Elements -->
+
+      <main class="bg-[rgba(26,26,44,0.4)]">
+        <!-- SECTION: Hero -->
+        <section
+          class="relative flex min-h-screen items-center justify-center pt-20"
+        >
+          <!-- Badge -->
+          <div class="relative z-10 mx-auto max-w-7xl px-6 py-20 text-center">
+            <div class="animate-fade-up opacity-0">
+              <span
+                class="border-secondary/20 bg-neutro500/50 text-secondary/40 mb-8 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm"
+              >
+                <span
+                  class="h-2 w-2 animate-pulse rounded-full bg-green-400"
+                ></span>
+                Vagas Limitadas para Novos Clientes
+              </span>
+            </div>
+
+            <!-- Heading -->
+            <h1
+              id="hero-title"
+              class="hero-title animate-fade-up mb-6 text-center text-4xl font-extrabold leading-tight opacity-0 delay-100 md:text-6xl lg:text-7xl"
+            >
+              Transforme Cliques em <br />
+              <span class="gradient-text"> Clientes Reais </span>
+            </h1>
+
+            <!-- Description -->
+            <p
+              id="hero-subtitle"
+              class="hero-description text-neutro200 animate-fade-up mx-auto mb-10 max-w-2xl text-lg text-slate-400 opacity-0 delay-200 md:text-xl"
+            >
+              Estratégias de tráfego pago no Meta Ads e Google Ads combinadas
+              com landing pages de alta conversão para escalar seu negócio.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div
+              class="animate-fade-up flex flex-col justify-center gap-4 opacity-0 delay-300 sm:flex-row"
+            >
+              <a
+                href="#contato"
+                id="hero-cta"
+                class="pulse-glow group flex items-center justify-center gap-2 rounded-full bg-gradient-to-br from-blue-800 to-lime-400 px-8 py-4 text-lg font-semibold transition-all hover:opacity-90"
+              >
+                Solicite Orçamento Grátis
+                <svg
+                  class="h-5 w-5 transition-transform group-hover:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewbox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#serviços"
+                class="flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-8 py-4 text-lg font-semibold transition-all hover:bg-white/10"
+              >
+                Ver Serviços
+              </a>
+            </div>
+
+            <!-- Brands -->
+            <div class="animate-fade-up delay-400 mt-20 opacity-0">
+              <p class="text-neutro200 mb-6 text-sm">Especialistas em</p>
+              <div
+                class="flex flex-wrap items-center justify-center gap-8 md:gap-12"
+              >
+                <div
+                  class="text-neutro200 flex items-center gap-2 transition-colors hover:text-white"
+                >
+                  <i class="fa-brands fa-meta text-3xl"></i>
+                  <span class="text-sm">Meta Ads</span>
+                </div>
+                <div
+                  class="text-neutro200 flex items-center gap-2 transition-colors hover:text-white"
+                >
+                  <i class="fa-brands fa-google text-3xl"></i>
+                  <span class="text-sm">Google Ads</span>
+                </div>
+                <div
+                  class="text-neutro200 flex items-center gap-2 transition-colors hover:text-white"
+                >
+                  <i class="fa-brands fa-instagram text-3xl"></i>
+                  <span class="text-sm">Instagram</span>
+                </div>
+              </div>
+
+              <!-- Scroll Indicator -->
+              <div
+                id="mouse"
+                class="scroll-indicator border-neutro200 inline-flex h-11 w-7 flex-col items-center justify-start gap-2.5 rounded-[10px] border-2 py-2.5"
+              >
+                <div
+                  id="mouse-roll"
+                  class="h-2 w-1.5 rounded-[10px] bg-zinc-500"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION: Services -->
+        <section class="relative py-32" id="serviços">
+          <!-- Section Header -->
+          <div class="mx-auto max-w-7xl px-6">
+            <div class="mb-16 text-center">
+              <span class="text-primary mb-4 block font-medium"
+                >O QUE OFERECEMOS</span
+              >
+              <h2 id="services-title" class="mb-6 text-3xl font-bold md:text-5xl">
+                Serviços que
+                <span class="gradient-text"> Geram Resultados </span>
+              </h2>
+              <p class="text-neutro200 mx-auto max-w-2xl">
+                Soluções completas para atrair, converter e fidelizar seus
+                clientes através do marketing digital estratégico.
+              </p>
+            </div>
+            <div class="grid gap-8 md:grid-cols-3">
+              <div
+                class="card-hover hover:border-secondary/30 group rounded-3xl border border-white/5 bg-gradient-to-br from-slate-900 to-slate-800 p-8"
+              >
+                <div
+                  class="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 transition-transform group-hover:scale-110"
+                >
+                  <i class="fa-brands fa-facebook text-3xl"></i>
+                </div>
+                <h3 class="mb-4 text-2xl font-bold">Meta Ads</h3>
+                <p class="mb-6 text-slate-400">
+                  Campanhas estratégicas no Facebook e Instagram para alcançar
+                  seu público ideal com precisão.
+                </p>
+                <ul class="space-y-3">
+                  <li class="flex items-center gap-3 text-slate-300">
+                    <svg
+                      class="h-5 w-5 text-green-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewbox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                    Segmentação avançada
+                  </li>
+                  <li class="flex items-center gap-3 text-slate-300">
+                    <svg
+                      class="h-5 w-5 text-green-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewbox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                    Retargeting inteligente
+                  </li>
+                  <li class="flex items-center gap-3 text-slate-300">
+                    <svg
+                      class="h-5 w-5 text-green-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewbox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                    Criativos otimizados
+                  </li>
+                </ul>
+              </div>
+
+              <div
+                class="card-hover hover:border-secondary/30 group rounded-3xl border border-white/5 bg-gradient-to-br from-slate-900 to-slate-800 p-8"
+              >
+                <div
+                  class="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-green-500 to-emerald-600 transition-transform group-hover:scale-110"
+                >
+                  <i class="fa-brands fa-google text-3xl"></i>
+                </div>
+                <h3 class="mb-4 text-2xl font-bold">Google Ads</h3>
+                <p class="mb-6 text-slate-400">
+                  Apareça no momento exato em que seus clientes estão buscando
+                  por seus produtos ou serviços.
+                </p>
+                <ul class="space-y-3">
+                  <li class="flex items-center gap-3 text-slate-300">
+                    <svg
+                      class="h-5 w-5 text-green-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewbox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                    Search &amp; Display
+                  </li>
+                  <li class="flex items-center gap-3 text-slate-300">
+                    <svg
+                      class="h-5 w-5 text-green-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewbox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                    YouTube Ads
+                  </li>
+                  <li class="flex items-center gap-3 text-slate-300">
+                    <svg
+                      class="h-5 w-5 text-green-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewbox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                    Performance Max
+                  </li>
+                </ul>
+              </div>
+
+              <div
+                class="card-hover hover:border-secondary/30 group rounded-3xl border border-white/5 bg-gradient-to-br from-slate-900 to-slate-800 p-8"
+              >
+                <div
+                  class="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-800 to-lime-400 transition-transform group-hover:scale-110"
+                >
+                  <img src="/assets/Landing-pages.png" class="w-10" alt="" />
+                </div>
+                <h3 class="mb-4 text-2xl font-bold">Landing Pages</h3>
+                <p class="mb-6 text-slate-400">
+                  Páginas de alta conversão desenvolvidas para transformar
+                  visitantes em leads qualificados.
+                </p>
+                <ul class="space-y-3">
+                  <li class="flex items-center gap-3 text-slate-300">
+                    <svg
+                      class="h-5 w-5 text-green-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewbox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                    Design responsivo
+                  </li>
+                  <li class="flex items-center gap-3 text-slate-300">
+                    <svg
+                      class="h-5 w-5 text-green-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewbox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                    Otimização de conversão
+                  </li>
+                  <li class="flex items-center gap-3 text-slate-300">
+                    <svg
+                      class="h-5 w-5 text-green-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewbox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                    Carregamento rápido
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION: Results -->
+        <section
+          class="relative bg-gradient-to-b from-violet-950/20 to-transparent py-32"
+          id="resultados"
+        >
+          <div class="mx-auto max-w-7xl px-6">
+            <!-- Section Header -->
+            <div class="mb-16 text-center">
+              <span class="text-primary mb-4 block font-medium"
+                >RESULTADOS REAIS</span
+              >
+              <h2 class="mb-6 text-center text-3xl font-bold md:text-5xl">
+                Números que
+                <span class="gradient-text"> Falam por Si </span>
+              </h2>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-2 gap-8 md:grid-cols-4">
+              <div class="p-6 text-center">
+                <!-- Stat Card: Campaigns -->
+                <div
+                  class="gradient-text mb-2 text-4xl font-extrabold md:text-6xl"
+                >
+                  + 50
+                </div>
+                <p class="text-neutro200">Campanhas Gerenciadas</p>
+              </div>
+              <div class="p-6 text-center">
+                <!-- Stat Card: Campaigns -->
+                <div
+                  class="gradient-text mb-2 text-4xl font-extrabold md:text-6xl"
+                >
+                  R$180k+
+                </div>
+                <p class="text-neutro200">Em Vendas Geradas</p>
+              </div>
+              <div class="p-6 text-center">
+                <!-- Stat Card: Campaigns -->
+                <div
+                  class="gradient-text mb-2 text-4xl font-extrabold md:text-6xl"
+                >
+                  12+
+                </div>
+                <p class="text-neutro200">Clientes Satisfeitos</p>
+              </div>
+
+              <div class="p-6 text-center">
+                <!-- Stat Card: Campaigns -->
+                <div
+                  class="gradient-text mb-2 text-4xl font-extrabold md:text-6xl"
+                >
+                  3.2x
+                </div>
+                <p class="text-neutro200">ROAS Médio</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION: Services -->
+        <section class="relative py-32" id="processo">
+          <div class="mx-auto max-w-7xl px-6">
+            <div class="mb-16 text-center">
+              <span class="text-primary mb-4 block font-medium"
+                >COMO FUNCIONA</span
+              >
+              <h2 class="mb-6 text-3xl font-bold md:text-5xl">
+                Processo
+                <span class="gradient-text"> Simplificado </span>
+              </h2>
+            </div>
+            <div class="grid gap-8 md:grid-cols-4">
+              <div class="relative">
+                <div class="mb-6 flex items-center justify-start">
+                  <!-- Linha de fundo -->
+                  <div
+                    class="absolute h-[2px] w-full bg-gradient-to-r from-blue-800 via-lime-400 to-transparent"
+                  ></div>
+
+                  <!-- Quadrado com número -->
+                  <div
+                    class="relative z-10 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-800 to-lime-400"
+                  >
+                    <h1 class="text-2xl font-bold">1</h1>
+                  </div>
+                </div>
+
+                <h3 class="mb-3 text-xl font-bold">Diagnóstico</h3>
+                <p class="text-neutro200">
+                  Análise completa do seu negócio e identificação das melhores
+                  oportunidades.
+                </p>
+              </div>
+
+              <div class="relative">
+                <div class="mb-6 flex items-center justify-start">
+                  <!-- Linha de fundo -->
+                  <div
+                    class="absolute h-[2px] w-full bg-gradient-to-r from-blue-800 via-lime-400 to-transparent"
+                  ></div>
+
+                  <!-- Quadrado com número -->
+                  <div
+                    class="relative z-10 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-800 to-lime-400"
+                  >
+                    <h1 class="text-2xl font-bold">2</h1>
+                  </div>
+                </div>
+
+                <h3 class="mb-3 text-xl font-bold">Estratégia</h3>
+                <p class="text-neutro200">
+                  Desenvolvimento de um plano personalizado para atingir seus
+                  objetivos.
+                </p>
+              </div>
+              <div class="relative">
+                <div class="mb-6 flex items-center justify-start">
+                  <!-- Linha de fundo -->
+                  <div
+                    class="absolute h-[2px] w-full bg-gradient-to-r from-blue-800 via-lime-400 to-transparent"
+                  ></div>
+
+                  <!-- Quadrado com número -->
+                  <div
+                    class="relative z-10 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-800 to-lime-400"
+                  >
+                    <h1 class="text-2xl font-bold">3</h1>
+                  </div>
+                </div>
+
+                <h3 class="mb-3 text-xl font-bold">Execução</h3>
+                <p class="text-neutro200">
+                  Implementação do plano estratégico desenvolvido para alcançar
+                  seus objetivos.
+                </p>
+              </div>
+              <div class="relative">
+                <div class="mb-6 flex items-center justify-start">
+                  <!-- Linha de fundo -->
+                  <div
+                    class="absolute h-[2px] w-full bg-gradient-to-r from-blue-800 via-lime-400 to-transparent"
+                  ></div>
+
+                  <!-- Quadrado com número -->
+                  <div
+                    class="relative z-10 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-800 to-lime-400"
+                  >
+                    <h1 class="text-2xl font-bold">4</h1>
+                  </div>
+                </div>
+
+                <h3 class="mb-3 text-xl font-bold">Otimização</h3>
+                <p class="text-neutro200">
+                  Ajustes contínuos para maximizar seus resultados e ROI.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="contato" class="relative py-32">
+          <div class="mx-auto max-w-4xl px-6">
+            <div
+              class="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-blue-900/50 to-lime-600/50 p-10 md:p-16"
+            >
+              <div class="relative z-10 text-center">
+                <h2
+                  id="contact-title"
+                  class="mb-6 text-3xl font-bold md:text-5xl"
+                >
+                  Pronto para <span class="gradient-text">Escalar</span>?
+                </h2>
+                <p class="mx-auto mb-10 max-w-xl text-lg text-slate-300">
+                  Agende uma consultoria gratuita e descubra como podemos
+                  multiplicar seus resultados com tráfego pago estratégico.
+                </p>
+                <div class="flex flex-col justify-center gap-4 sm:flex-row">
+                  <a
+                    href="https://api.whatsapp.com/send?phone=5512997306924&text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os%20da%20Calyx%20Ads."
+                    id="whatsapp-btn"
+                    target="_blank"
+                    onclick="openWhatsApp(event)"
+                    class="group flex items-center justify-center gap-3 rounded-full bg-green-500 px-8 py-4 text-lg font-semibold transition-all hover:bg-green-600"
+                  >
+                    <i class="fa-brands fa-whatsapp text-2xl"></i>
+                    Falar no WhatsApp
+                  </a>
+                </div>
+                <p class="mt-8 text-sm text-slate-300">
+                  ✓ Consultoria gratuita ✓ Sem compromisso ✓ Resposta em até 2h
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="relative border-t border-white/5 py-12">
+        <div class="mx-auto max-w-7xl px-6">
+          <div
+            class="flex flex-col items-center justify-between gap-6 md:flex-row"
+          >
+            <div class="flex items-center gap-2">
+              <img src="/assets/Logo.png" class="w-10" alt="Calyx Ads Logo" />
+
+              <span class="text-xl font-bold"
+                >alyx <span class="gradient-text">Ads</span></span
+              >
+            </div>
+            <p class="text-sm text-slate-500">
+              © 2026 CalyxAds. Todos os direitos reservados.
+            </p>
+          </div>
+        </div>
+      </footer>
+      <a
+        href="https://api.whatsapp.com/send?phone=5512997306924&text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os%20da%20Calyx%20Ads."
+        target="_blank"
+        class="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-green-500 text-white shadow-lg transition hover:scale-110"
+      >
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+      </a>
+    </div>
+  </body>
+  <script src="/script.js"></script>
+</html>

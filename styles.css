@@ -1,0 +1,205 @@
+.btn-gradient {
+  position: relative;
+  display: inline-block; /* necessário pra transform */
+  padding: 8px 24px;
+  border-radius: 9999px;
+  background: transparent;
+  font-weight: 500;
+  font-size: 16px;
+  z-index: 1;
+  overflow: hidden;
+  transition: transform 0.25s ease-out; /* adiciona a transição aqui */
+}
+
+.btn-gradient:hover {
+  transform: scale(1.02);
+}
+
+.btn-gradient::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: inherit;
+
+  background: linear-gradient(120deg, #1e40af, #a3e635);
+  background-size: 200% 200%;
+  background-position: var(--x, 50%) var(--y, 50%);
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  transition: background-position 0.3s ease-out;
+  pointer-events: none; /* importante: deixa o pseudo-elemento não atrapalhar o hover */
+}
+
+/* TEXTO */
+.btn-gradient span {
+  background: linear-gradient(120deg, #1e40af, #a3e635);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transition: text-shadow 0.3s ease-out;
+}
+
+.btn {
+  --x: 50%;
+  --y: 50%;
+
+  display: inline-block; /* importante para transform */
+  background: linear-gradient(140deg, #1e40af, #a3e635);
+  background-size: 200% 200%;
+  background-position: var(--x) var(--y);
+
+  color: #1a1a2c;
+  padding: 8px 24px;
+  border-radius: 9999px;
+  font-weight: 500;
+  font-size: 14px;
+  transition:
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    background-position 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn:hover {
+  transform: scale(1.02);
+}
+
+#mouse-roll {
+  animation: roll 1.5s infinite;
+}
+
+@keyframes roll {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+#circle,
+#circle2 {
+  transition: background-position 0.3s ease-out;
+}
+
+#circle {
+  animation: float 1s linear infinite;
+}
+@keyframes float {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(20px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+#circle2 {
+  animation: alternate 5s linear infinite gradient-move-reverse;
+}
+
+/* * {
+  outline: red solid 1px;
+} */
+
+body {
+  box-sizing: border-box;
+}
+
+* {
+  font-family: 'Outfit', sans-serif;
+}
+
+.gradient-text {
+  background: linear-gradient(165deg, #1e40af, #a3e635);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.card-hover {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.card-hover:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.5;
+  animation: blob-float 8s ease-in-out infinite;
+}
+@keyframes blob-float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+}
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-up {
+  animation: fade-up 0.8s ease-out forwards;
+}
+.delay-100 {
+  animation-delay: 0.1s;
+}
+.delay-200 {
+  animation-delay: 0.2s;
+}
+.delay-300 {
+  animation-delay: 0.3s;
+}
+.delay-400 {
+  animation-delay: 0.4s;
+}
+.delay-500 {
+  animation-delay: 0.5s;
+}
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(138, 158, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(138, 158, 255, 0.6);
+  }
+}
+.floating {
+  animation: floating 3s ease-in-out infinite;
+}
+@keyframes floating {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
